@@ -23,5 +23,10 @@ namespace MeowMeowShopAPI.services
 
             return produto;
         }
+
+        public List<ProdutoModel> GetProdutoList()
+        {
+            return _produtoRepository.GetProdutoList();
+        }
     }
 }

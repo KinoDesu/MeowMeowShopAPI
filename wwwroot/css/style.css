@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+:root {
+    --bg-color: #FCE4EC;
+    --primary-color: #FF9596;
+    --secondary-color: #F5DABD;
+
+    --primary-100: #F48FB1;
+    --primary-200: #d47294;
+    --primary-300: #8c3155;
+    --accent-100: #FF4081;
+    --accent-200: #ffe4ff;
+    --text-100: #FFFFFF;
+    --text-200: #e0e0e0;
+    --bg-300: #c9b2ba;
+}
+
+* {
+    font-family: 'Lobster', Cambria, Cochin, Georgia, Times, 'Times New Roman', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    gap: 144px;
+    padding-right: 24px;
+    width: 100vw;
+    height: 50px;
+    z-index: 1;
+    border-radius: 0 0 20px 20px;
+    background-color: var(--primary-color);
+}
+
+header .logo {
+    left: 50vw;
+    top: 0;
+    transform: translate(-50%);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+header i {
+    color: var(--secondary-color);
+    font-size: 25px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    margin: 20px;
+}
+
+#products {
+    align-self: flex-end;
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(210px, 100%/5)), 1fr));
+    margin: 2px;
+}
+
+.card {
+    background-color: var(--primary-100);
+    margin: 10px;
+    height: 275px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: thick outset var(--primary-200);
+    box-shadow: 10px 10px 10px var(--bg-300);
+    width: 200px;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(105%);
+    filter: brightness(110%);
+}
+
+.nome_produto {
+    font-size: 20px;
+    width: 80%;
+}
+
+.img_produto {
+    object-fit: contain;
+    width: 90%;
+    border-radius: 10px;
+    border: 3px inset var(--primary-200)
+}
+
+.preco_produto {
+    font-size: 13px;
+    align-self: flex-end;
+}
+
+#hcg-slider-1 .hcg-slide-container {
+    width: auto;
+    height: auto;
+}
+
+.hcg-slider {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hcg-slide-container {
+    max-width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.hcg-slides {
+    display: none;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: solid 1px #a0a0a0;
+}
+
+.hcg-slides img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+}
+
+#hcg-slide-prev,
+#hcg-slide-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease-out;
+    border-radius: 0 3px 3px 0;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px #686868;
+}
+
+#hcg-slide-prev img,
+#hcg-slide-next img {
+    width: 25px;
+}
+
+#hcg-slide-next {
+    right: 0;
+    border-radius: 0 0 50% 50%;
+    transform: rotate(90deg);
+}
+
+#hcg-slide-prev {
+    left: 0;
+    border-radius: 0 0 50% 50%;
+    transform: rotate(-90deg);
+}
+
+#hcg-slide-prev:hover,
+#hcg-slide-next:hover {
+    background-color: var(--primary-color);
+}
+
+.hcg-slide-dot-control {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.hcg-slide-dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.hcg-slide-dot.dot-active {
+    background-color: #717171;
+}
+
+/************CSS Animation***********/
+
+.animated-right {
+    animation-name: fadeInRightBig;
+    animation-duration: 1s;
+}
+
+.animated-left {
+    animation-name: fadeInLeftBig;
+    animation-duration: 1s;
+}
+
+@keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeInRightBig {
+    animation-name: fadeInRightBig;
+}
+
+.fadeInLeftBig {
+    animation-name: fadeInLeftBig;
+}
