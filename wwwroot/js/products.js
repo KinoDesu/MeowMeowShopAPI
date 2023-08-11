@@ -34,8 +34,7 @@ async function showProduct() {
 
         nomeProduto.textContent = `${obj.nome}`
         imagemProduto.src = obj.imagem
-        precoProduto.textContent = `R$ ${parseFloat(obj.preco).toFixed(2)}
-}`
+        precoProduto.textContent = `R$ ${parseFloat(obj.preco).toFixed(2).replace(".", ",")}`
 
         div.appendChild(nomeProduto)
         div.appendChild(imagemProduto)
