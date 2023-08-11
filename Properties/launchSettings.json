@@ -1,25 +1,16 @@
-﻿{
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:9036",
-      "sslPort": 44392
-    }
-  },
+{
   "profiles": {
     "MeowMeowShopAPI": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "https://localhost:8080/meowmeowshopapi/swagger",
+      "launchUrl": "http://localhost:7265/index.html",
       "environmentVariables": {
         "APP_NAME": "MeowMeowShopAPI",
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "PATH_BASE": "/meowmeowshopapi",
-        "ASPNETCORE_URLS": "http://+:8080/"
-      }
+        "PATH_BASE": "",
+        "ASPNETCORE_URLS": "http://+:7265/"
+      },
+      "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -28,6 +19,15 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:80",
+      "sslPort": 0
     }
   }
 }

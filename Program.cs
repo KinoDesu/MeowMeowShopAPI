@@ -3,14 +3,7 @@ using MeowMeowShopAPI.repositories.interfaces;
 using MeowMeowShopAPI.services;
 using MeowMeowShopAPI.services.interfaces;
 
-WebApplicationOptions webApplicationOptions = new()
-{
-    WebRootPath = "index.html", //Setting the WebRootPath as MyWebRoot
-    Args = args, //Setting the Command Line Arguments in Args
-    EnvironmentName = "Development", //Changing to Production
-};
-
-var builder = WebApplication.CreateBuilder(webApplicationOptions);
+var builder = WebApplication.CreateBuilder();
 
 // Add services to the container.
 
