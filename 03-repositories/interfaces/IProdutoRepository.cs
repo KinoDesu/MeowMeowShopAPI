@@ -9,5 +9,6 @@ namespace MeowMeowShopAPI.repositories.interfaces
     public interface IProdutoRepository
     {
         ProdutoModel? GetProdutoById(int id);
+        List<ProdutoModel> GetProdutoList();
     }
 }

@@ -12,10 +12,11 @@ namespace MeowMeowShopAPI.repositories
 
         private static readonly List<ProdutoModel> produtos = new()
         {
-            new ProdutoModel("colar", 55.00, "é um colar", 1, 0.5, 0, new List<ImageModel>(){new ImageModel("a")}),
-            new ProdutoModel("pulseira", 15.00, "é uma pulseira", 1, 0.5, 0, new List<ImageModel>(){new ImageModel("b")}),
-            new ProdutoModel("roupa", 30.00, "é uma roupa", 4, 0.3, 10, new List<ImageModel>(){new ImageModel("c")}),
-            new ProdutoModel("tenis", 155.00, "é um tenis", 2, 12.4, 50, new List<ImageModel>(){new ImageModel("d")})
+            new ProdutoModel("colar com correntes e cruz", 55.00, "para quem gosta daquela pegada mais gótica", 1, 0.5, 0, new List<ImageModel>(){new ImageModel("./assets/img/img0 id0.png")}),
+            new ProdutoModel("choker de estela", 25.00, "quem aí não adora o estilo y2k???", 1, 0.5, 0, new List<ImageModel>(){new ImageModel("./assets/img/img0 id1.png")}),
+            new ProdutoModel("colar com lua", 25.00, "para quem tem uma vibe mais mística e misteriosa", 4, 0.3, 10, new List<ImageModel>(){new ImageModel("./assets/img/img0 id2.png")}),
+            new ProdutoModel("colar de pérolas com cruz", 45.00, "um lindo colar de pérolas com uma cruz", 2, 12.4, 50, new List<ImageModel>(){new ImageModel("./assets/img/img0 id3.png")}),
+            new ProdutoModel("pulseira de teste", 30.00, "uma pulseira de teste", 2, 12.4, 50, new List<ImageModel>(){new ImageModel("./assets/img/img1 id2.png")})
         };
 
         public ProdutoModel? GetProdutoById(int id)
@@ -27,6 +28,11 @@ namespace MeowMeowShopAPI.repositories
             }
 
             return null;
+        }
+
+        public List<ProdutoModel> GetProdutoList()
+        {
+            return produtos;
         }
     }
 }

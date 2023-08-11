@@ -16,6 +16,12 @@ public class ProdutoController : ControllerBase
         _produtoService = produtoService;
     }
 
+    [HttpGet]
+    public IActionResult GetProductList()
+    {
+        return Ok(_produtoService.GetProdutoList());
+    }
+
     [HttpGet("{id}")]
     public IActionResult GetProdutoByID(int id)
     {

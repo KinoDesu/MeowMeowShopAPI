@@ -3,7 +3,14 @@ using MeowMeowShopAPI.repositories.interfaces;
 using MeowMeowShopAPI.services;
 using MeowMeowShopAPI.services.interfaces;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationOptions webApplicationOptions = new()
+{
+    WebRootPath = "index.html", //Setting the WebRootPath as MyWebRoot
+    Args = args, //Setting the Command Line Arguments in Args
+    EnvironmentName = "Development", //Changing to Production
+};
+
+var builder = WebApplication.CreateBuilder(webApplicationOptions);
 
 // Add services to the container.
 
@@ -24,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
