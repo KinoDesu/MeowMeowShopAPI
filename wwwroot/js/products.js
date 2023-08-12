@@ -3,8 +3,6 @@ async function showProduct() {
 
     async function getProductFromAPI(uri, id) {
         const produto = await fetch(uri + id).then(response => response.json())
-
-        console.log(produto)
     }
 
     getProductFromAPI(uri, 2);
@@ -36,7 +34,7 @@ async function showProduct() {
 
         nomeProduto.textContent = `${obj.nome}`
         imagemProduto.src = obj.imagem
-        precoProduto.textContent = `R$ ${obj.preco}`
+        precoProduto.textContent = `R$ ${parseFloat(obj.preco).toFixed(2).replace(".", ",")}`
 
         div.appendChild(nomeProduto)
         div.appendChild(imagemProduto)
