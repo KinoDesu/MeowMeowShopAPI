@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MeowMeowShopAPI.models;
 using MeowMeowShopAPI.repositories.interfaces;
 using MeowMeowShopAPI.services.interfaces;
@@ -27,6 +23,11 @@ namespace MeowMeowShopAPI.services
         public List<ProdutoModel> GetProdutoList()
         {
             return _produtoRepository.GetProdutoList();
+        }
+
+        public async Task<ProdutoModel> PostProduto(string nome, double preco, string descricao, int quantidade, double peso, double desconto, string urlImagem)
+        {
+            return await _produtoRepository.PostProduto(nome, preco, descricao, quantidade, peso, desconto, urlImagem);
         }
     }
 }

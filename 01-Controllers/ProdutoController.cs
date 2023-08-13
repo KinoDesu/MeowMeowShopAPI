@@ -1,6 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using MeowMeowShopAPI.models;
 using MeowMeowShopAPI.services.interfaces;
+using System.Text.Json;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Extensions.Logging.Console;
+using System.IO;
+using System.Threading.Tasks;
+using System;
+using Newtonsoft.Json;
 
 namespace MeowMeowShopAPI.Controllers;
 
@@ -16,7 +23,7 @@ public class ProdutoController : ControllerBase
         _produtoService = produtoService;
     }
 
-    [HttpGet]
+    [HttpGet("ListarProdutos")]
     public IActionResult GetProductList()
     {
         return Ok(_produtoService.GetProdutoList());
@@ -36,4 +43,15 @@ public class ProdutoController : ControllerBase
         return Ok(produto);
 
     }
+
+    [HttpPost]
+        public async Task<IActionResult> PostProdutoAsync(string nome, double preco, string descricao, int quantidade, double peso, double desconto, string urlImagem)
+        {
+            var produto = await _produtoService.PostProduto(nome, preco, descricao, quantidade, peso, desconto, urlImagem);
+            if(produto==null)
+            {
+                return BadRequest();
+            }
+            return Ok(produto);
+        }
 }

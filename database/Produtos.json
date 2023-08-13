@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "nome": "colar com correntes e cruz",
+      "preco": 55,
+      "descricao": "para quem gosta daquela pegada mais gótica",
+      "quantidade": 1,
+      "peso": 0.5,
+      "desconto": 0,
+      "imagens": [
+        {
+          "url": "./assets/img/img0 id0.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "choker de estela",
+      "preco": 25,
+      "descricao": "quem aí não adora o estilo y2k???",
+      "quantidade": 1,
+      "peso": 0.5,
+      "desconto": 0,
+      "imagens": [
+        {
+          "url": "./assets/img/img0 id1.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "colar com lua",
+      "preco": 25,
+      "descricao": "para quem tem uma vibe mais mística e misteriosa",
+      "quantidade": 4,
+      "peso": 0.3,
+      "desconto": 10,
+      "imagens": [
+        {
+          "url": "./assets/img/img0 id2.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "colar de pérolas com cruz",
+      "preco": 45,
+      "descricao": "um lindo colar de pérolas com uma cruz",
+      "quantidade": 2,
+      "peso": 12.4,
+      "desconto": 50,
+      "imagens": [
+        {
+          "url": "./assets/img/img0 id3.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "pulseira de teste",
+      "preco": 30,
+      "descricao": "uma pulseira de teste",
+      "quantidade": 2,
+      "peso": 12.4,
+      "desconto": 50,
+      "imagens": [
+        {
+          "url": "./assets/img/img1 id2.png"
+        }
+      ]
+    }
+]

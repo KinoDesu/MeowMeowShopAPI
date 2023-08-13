@@ -1,5 +1,5 @@
 async function showProduct() {
-    const uri = 'Produto/'
+    const uri = 'Produto/ListarProdutos'
 
     async function getProductFromAPI(uri, id) {
         const produto = await fetch(uri + id).then(response => response.json())
