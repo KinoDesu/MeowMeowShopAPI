@@ -2,8 +2,10 @@ using MeowMeowShopAPI.repositories;
 using MeowMeowShopAPI.repositories.interfaces;
 using MeowMeowShopAPI.services;
 using MeowMeowShopAPI.services.interfaces;
+using System.Data;
+using MySqlConnector;
 
-var builder = WebApplication.CreateBuilder();
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -14,6 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped<IDbConnection>(c => new MySqlConnection(builder.Configuration.GetConnectionString("connection")));
 
 var app = builder.Build();
 

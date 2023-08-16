@@ -1,14 +1,13 @@
 async function showProduct() {
-    const uri = 'Produto/ListarProdutos'
 
-    async function getProductFromAPI(uri, id) {
-        const produto = await fetch(uri + id).then(response => response.json())
-    }
+    console.log("chamou")
 
-    getProductFromAPI(uri, 2);
+    const uri = '/Produto/ListarProdutos'
 
-    const a = await fetch('Produto').then((response) => response.json())
+    const a = await fetch(uri).then((response) => response.json())
+    console.log("opa" + a[1].Id)
     var section = document.getElementById("products")
+
 
     for (var i = 0; i < a.length; i++) {
 
@@ -17,7 +16,7 @@ async function showProduct() {
             "nome": a[i].nome,
             "descricao": a[i].descricao,
             "preco": a[i].preco,
-            "imagem": a[i].imagens[0].url
+            "imagem": a[i].imagens[0].link
         }
 
         var div = document.createElement("card")
