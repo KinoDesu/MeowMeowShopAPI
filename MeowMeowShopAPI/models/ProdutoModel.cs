@@ -24,6 +24,7 @@ namespace MeowMeowShopAPI.models
             this.Imagens = imagens;
         }
 
+
         public ProdutoModel() { }
     }
 }

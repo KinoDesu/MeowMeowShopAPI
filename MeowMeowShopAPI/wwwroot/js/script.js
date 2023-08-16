@@ -1,5 +1,4 @@
 (() => {
-    //If you want to add more images, add the link name and URL image URL in the array list below.
     const images_list = [
         {
             "url": "./assets/img/banner-teste.jpg",
@@ -77,15 +76,28 @@
         event.preventDefault();
         slide_index--;
         showSlides();
-        images.classList.add("animated-left");
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains("animated-right")) {
+                images[i].classList.remove("animated-right")
+            }
+            if (!images[i].classList.contains("animated-left")) {
+                images[i].classList.add("animated-left");
+            }
+        }
     }, false);
 
     next_button.addEventListener("click", event => {
         event.preventDefault();
         slide_index++;
         showSlides();
-        images.classList.remove("animated-left");
-        images.classList.add("animated-right");
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains("animated-left")) {
+                images[i].classList.remove("animated-left");
+            }
+            if (!images[i].classList.contains("animated-right")) {
+                images[i].classList.add("animated-right")
+            }
+        }
     }, false);
 
     const dot_click = event => {
