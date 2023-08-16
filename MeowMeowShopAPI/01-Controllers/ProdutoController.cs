@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MeowMeowShopAPI.services.interfaces;
-using System.Text.Json;
+using System.Data;
 
 namespace MeowMeowShopAPI.Controllers;
 
@@ -10,10 +10,12 @@ public class ProdutoController : ControllerBase
 {
 
     private readonly IProdutoService _produtoService;
+    private readonly IDbConnection _mySqlConnection;
 
-    public ProdutoController(IProdutoService produtoService)
+    public ProdutoController(IProdutoService produtoService, IDbConnection mySqlConnection)
     {
         _produtoService = produtoService;
+        _mySqlConnection = mySqlConnection;
         
     }
 
@@ -47,11 +49,5 @@ public class ProdutoController : ControllerBase
             return BadRequest();
         }
         return Ok(produto);
-    }
-
-    [HttpPut("{a}")]
-    public IActionResult GetA([FromBody] List<string>? a)
-    {
-        return Ok(a);
     }
 }

@@ -8,45 +8,45 @@ namespace MeowMeowShopAPI.repositories
     public class ProdutoRepository : IProdutoRepository
     {
 
-        private readonly IDbConnection _mySqlConnection;
+        private readonly IDbConnection _dbConnection;
 
-        public ProdutoRepository(IDbConnection mySqlConnection)
+        public ProdutoRepository(IDbConnection dbConnection)
         {
-            _mySqlConnection = mySqlConnection;
+            _dbConnection = dbConnection;
         }
 
         public async Task<ProdutoModel?> GetProdutoById(int id)
         {
-            var produtos = await _mySqlConnection.QueryFirstAsync<ProdutoModel>(@"SELECT * FROM produto where id = @id", new { id } );
+            var produtos = await _dbConnection.QueryFirstAsync<ProdutoModel>(@"SELECT * FROM meowmeowshop.produto where id = @id", new { id });
 
             if (produtos == null)
                 return null;
-            
-            var imagens = await _mySqlConnection.QueryAsync<ImageModel>(@$"
+
+            var imagens = await _dbConnection.QueryAsync<ImageModel>(@$"
                 SELECT id AS {nameof(ImageModel.Id)}
                 , id_produto AS {nameof(ImageModel.IdProduto)}
                 , link AS {nameof(ImageModel.Link)}
-                FROM imagem_produto where id_produto = @id
+                FROM meowmeowshop.imagem_produto where id_produto = @id
             ", new { id });
 
-                produtos.Imagens = new List<ImageModel>() { };
-                for (int j = 0; j < imagens.Count(); j++)
-                {
-                        produtos.Imagens.Add(imagens.ElementAt(j));
-                }
-            
+            produtos.Imagens = new List<ImageModel>() { };
+            for (int j = 0; j < imagens.Count(); j++)
+            {
+                produtos.Imagens.Add(imagens.ElementAt(j));
+            }
+
 
             return produtos;
         }
 
         public async Task<List<ProdutoModel>> GetProdutoList()
         {
-            var produtos = await _mySqlConnection.QueryAsync<ProdutoModel>("SELECT * FROM produto");
-            var imagens = await _mySqlConnection.QueryAsync<ImageModel>(@$"
+            var produtos = await _dbConnection.QueryAsync<ProdutoModel>("SELECT * FROM meowmeowshop.produto");
+            var imagens = await _dbConnection.QueryAsync<ImageModel>(@$"
                 SELECT id AS {nameof(ImageModel.Id)}
                 , id_produto AS {nameof(ImageModel.IdProduto)}
                 , link AS {nameof(ImageModel.Link)}
-                FROM imagem_produto
+                FROM meowmeowshop.imagem_produto
             ");
 
             for (int i = 0; i < produtos.Count(); i++)
@@ -67,16 +67,16 @@ namespace MeowMeowShopAPI.repositories
 
         public async Task<ProdutoModel> PostProduto(string nome, double preco, string descricao, int quantidade, double peso, double desconto, string link)
         {
-            await _mySqlConnection.QueryAsync<ProdutoModel>(@$"
-            INSERT INTO produto (nome, preco, descricao, quantidade, desconto) values
+            await _dbConnection.QueryAsync<ProdutoModel>(@$"
+            INSERT INTO meowmeowshop.produto (nome, preco, descricao, quantidade, desconto) values
             (@nome, @preco, @descricao, @quantidade, @desconto);
             ", new { nome, preco, descricao, quantidade, desconto });
 
-            var produto = await _mySqlConnection.QueryFirstAsync<ProdutoModel>(@$"select * from produto order by id desc");
+            var produto = await _dbConnection.QueryFirstAsync<ProdutoModel>(@$"select * from meowmeowshop.produto order by id desc");
             int id_produto = produto.Id;
 
-            await _mySqlConnection.QueryAsync<ImageModel>($@"
-            INSERT INTO imagem_produto (id_produto, link) values
+            await _dbConnection.QueryAsync<ImageModel>($@"
+            INSERT INTO meowmeowshop.imagem_produto (id_produto, link) values
             (@id_produto, @link)
             ", new { id_produto, link });
 
