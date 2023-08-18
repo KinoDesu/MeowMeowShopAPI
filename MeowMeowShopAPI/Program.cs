@@ -1,16 +1,11 @@
-using MeowMeowShopAPI.repositories;
-using MeowMeowShopAPI.repositories.interfaces;
-using MeowMeowShopAPI.services;
-using MeowMeowShopAPI.services.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.repositories;
+using MeowMeowShopAPI.MeowMeowApi.repositories.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.services;
+using MeowMeowShopAPI.MeowMeowApi.services.interfaces;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
-WebApplicationOptions webApplicationOptions = new()
-{
-    WebRootPath = "index.html", //Setting the WebRootPath as MyWebRoot
-    Args = args, //Setting the Command Line Arguments in Args
-    EnvironmentName = "Development", //Changing to Production
-};
-
-var builder = WebApplication.CreateBuilder(webApplicationOptions);
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -21,6 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped <IDbConnection>(c => new SqlConnection(builder.Configuration.GetConnectionString("connection")));
 
 var app = builder.Build();
 

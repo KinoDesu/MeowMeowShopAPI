@@ -1,16 +1,13 @@
 async function showProduct() {
-    const uri = 'Produto/'
 
-    async function getProductFromAPI(uri, id) {
-        const produto = await fetch(uri + id).then(response => response.json())
+    console.log("chamou")
 
-        console.log(produto)
-    }
+    const uri = '/Produto/ListarProdutos'
 
-    getProductFromAPI(uri, 2);
-
-    const a = await fetch('Produto').then((response) => response.json())
+    const a = await fetch(uri).then((response) => response.json())
+    console.log("opa" + a[1].Id)
     var section = document.getElementById("products")
+
 
     for (var i = 0; i < a.length; i++) {
 
@@ -19,7 +16,7 @@ async function showProduct() {
             "nome": a[i].nome,
             "descricao": a[i].descricao,
             "preco": a[i].preco,
-            "imagem": a[i].imagens[0].url
+            "imagem": a[i].imagens[0].link
         }
 
         var div = document.createElement("card")
@@ -36,7 +33,7 @@ async function showProduct() {
 
         nomeProduto.textContent = `${obj.nome}`
         imagemProduto.src = obj.imagem
-        precoProduto.textContent = `R$ ${obj.preco}`
+        precoProduto.textContent = `R$ ${parseFloat(obj.preco).toFixed(2).replace(".", ",")}`
 
         div.appendChild(nomeProduto)
         div.appendChild(imagemProduto)

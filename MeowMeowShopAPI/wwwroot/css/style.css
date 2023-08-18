@@ -58,8 +58,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 150px;
-    margin: 20px;
+    padding-top: 150px;;
 }
 
 #products {
