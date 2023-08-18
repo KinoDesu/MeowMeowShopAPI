@@ -1,10 +1,9 @@
-using MeowMeowShopAPI.repositories;
-using MeowMeowShopAPI.repositories.interfaces;
-using MeowMeowShopAPI.services;
-using MeowMeowShopAPI.services.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.repositories;
+using MeowMeowShopAPI.MeowMeowApi.repositories.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.services;
+using MeowMeowShopAPI.MeowMeowApi.services.interfaces;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,4 +1,4 @@
-namespace MeowMeowShopAPI.models
+namespace MeowMeowShopAPI.MeowMeowApi.models
 {
     public class ImageModel
     {

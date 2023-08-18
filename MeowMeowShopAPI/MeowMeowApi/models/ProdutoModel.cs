@@ -1,4 +1,4 @@
-namespace MeowMeowShopAPI.models
+namespace MeowMeowShopAPI.MeowMeowApi.models
 {
     public class ProdutoModel
     {
@@ -14,14 +14,14 @@ namespace MeowMeowShopAPI.models
 
         public ProdutoModel(string nome, double preco, string descricao, int quantidade, double peso, double desconto, List<ImageModel> imagens)
         {
-            this.Id = ++Count;
-            this.Nome = nome;
-            this.Preco = preco;
-            this.Descricao = descricao;
-            this.Quantidade = quantidade;
-            this.Peso = peso;
-            this.Desconto = desconto;
-            this.Imagens = imagens;
+            Id = ++Count;
+            Nome = nome;
+            Preco = preco;
+            Descricao = descricao;
+            Quantidade = quantidade;
+            Peso = peso;
+            Desconto = desconto;
+            Imagens = imagens;
         }
 
 

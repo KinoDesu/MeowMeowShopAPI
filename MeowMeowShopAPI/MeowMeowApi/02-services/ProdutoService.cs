@@ -1,8 +1,8 @@
-using MeowMeowShopAPI.models;
-using MeowMeowShopAPI.repositories.interfaces;
-using MeowMeowShopAPI.services.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.models;
+using MeowMeowShopAPI.MeowMeowApi.repositories.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.services.interfaces;
 
-namespace MeowMeowShopAPI.services
+namespace MeowMeowShopAPI.MeowMeowApi.services
 {
     public class ProdutoService : IProdutoService
     {

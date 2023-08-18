@@ -1,9 +1,9 @@
-using MeowMeowShopAPI.models;
-using MeowMeowShopAPI.repositories.interfaces;
+using MeowMeowShopAPI.MeowMeowApi.models;
+using MeowMeowShopAPI.MeowMeowApi.repositories.interfaces;
 using System.Data;
 using Dapper;
 
-namespace MeowMeowShopAPI.repositories
+namespace MeowMeowShopAPI.MeowMeowApi.repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {

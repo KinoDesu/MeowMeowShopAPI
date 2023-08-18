@@ -1,6 +1,6 @@
-using MeowMeowShopAPI.models;
+using MeowMeowShopAPI.MeowMeowApi.models;
 
-namespace MeowMeowShopAPI.services.interfaces
+namespace MeowMeowShopAPI.MeowMeowApi.services.interfaces
 {
     public interface IProdutoService
     {

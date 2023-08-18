@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MeowMeowShopAPI.services.interfaces;
-using System.Data;
+using MeowMeowShopAPI.MeowMeowApi.services.interfaces;
 
 namespace MeowMeowShopAPI.Controllers;
 
@@ -10,12 +9,10 @@ public class ProdutoController : ControllerBase
 {
 
     private readonly IProdutoService _produtoService;
-    private readonly IDbConnection _mySqlConnection;
 
-    public ProdutoController(IProdutoService produtoService, IDbConnection mySqlConnection)
+    public ProdutoController(IProdutoService produtoService)
     {
         _produtoService = produtoService;
-        _mySqlConnection = mySqlConnection;
         
     }
 
