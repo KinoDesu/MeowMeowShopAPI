@@ -4,17 +4,6 @@ checkbox.addEventListener("change", function () {
     getUri()
 })
 getUri()
-async function getUri() {
-    const rep = await fetch("../assets/infos.json")
-
-    var data = await rep.json()
-
-    if (checkbox.checked) {
-        showOffProducts(data["uri"])
-    } else {
-        showProduct(data["uri"])
-    }
-}
 async function showProduct(uri) {
 
     const a = await fetch(uri).then((response) => response.json())
@@ -94,6 +83,18 @@ async function showProduct(uri) {
     }
 }
 
+async function getUri() {
+    const rep = await fetch("../assets/infos.json")
+
+    var data = await rep.json()
+
+    if (checkbox.checked) {
+        showOffProducts(data["uri"])
+    } else {
+        showProduct(data["uri"])
+    }
+}
+
 async function showOffProducts(uri) {
 
     const a = await fetch(uri).then((response) => response.json())
@@ -148,17 +149,9 @@ async function showOffProducts(uri) {
 
 function clearProducts() {
 
-    var exit = 0;
-    while (exit == 0) {
-        try {
-            var card = document.querySelector(".card")
-            let link = card.nextElementSibling
-            card.remove()
-            if (card.getAttribute("class") == "card") {
-                link.remove()
-            }
-        } catch (e) {
-            exit = 1
-        }
-    }
+    var card = document.querySelectorAll(".card")
+    card.forEach(function (item, i) {
+
+        item.remove()
+    })    
 }
