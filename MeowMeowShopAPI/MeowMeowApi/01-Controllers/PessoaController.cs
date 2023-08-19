@@ -28,7 +28,9 @@ values
 , new { pessoa.Nome, pessoa.Sobrenome, pessoa.Cpf, pessoa.Email, pessoa.Cep, 
     pessoa.Endereco, pessoa.Complemento, pessoa.Telefone1, pessoa.Telefone2, pessoa.Imagem });
 
-            return Ok(pessoaCriada.First<PessoaModel>());
+            
+
+            return Ok("Pessoa Criada com sucesso!");
 
         }
     }
