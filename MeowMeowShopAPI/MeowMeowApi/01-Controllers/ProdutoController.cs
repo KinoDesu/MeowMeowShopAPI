@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MeowMeowShopAPI.MeowMeowApi.services.interfaces;
 
-namespace MeowMeowShopAPI.Controllers;
+namespace MeowMeowShopAPI.MeowMeowApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

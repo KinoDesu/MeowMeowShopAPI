@@ -1,6 +1,5 @@
     let deletar = setInterval(() => { deletarAds() }, 200)
 async function deletarAds() {
-    console.log("rodoy")
     try {
         var exit = 0;
             while (exit == 0) {
