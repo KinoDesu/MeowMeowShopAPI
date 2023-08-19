@@ -1,16 +1,23 @@
-function deletarAds() {
+    let deletar = setInterval(() => { deletarAds() }, 200)
+async function deletarAds() {
+    console.log("rodoy")
+    try {
+        var exit = 0;
+            while (exit == 0) {
+                let link = document.querySelector("footer").nextElementSibling
+                if (link.tagName != "HTML") {
+                    link.remove()
+                }
+                else {
+                    exit = 1
+                }
+            }
 
-    var exit = 0;
-    while (exit == 0) {
-        let link = document.querySelector("footer").nextElementSibling
-        if (link.tagName != "HTML") {
-            link.remove()
-        }
-        else {
+    } catch (e) {
 
-            exit = 1
-        }
+        
     }
+
 };
 
-setTimeout(() => { deletarAds() }, 300)
+        setTimeout(() => { clearInterval(deletar); }, 5000);             
